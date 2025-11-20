@@ -3,6 +3,8 @@ name: CI-CD Pipeline
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build-test:
@@ -23,7 +25,7 @@ jobs:
       - name: Train Model
         run: python train_model.py
 
-      - name: Run Tests
+      - name: Run Pytest
         run: pytest
 
   docker-build-push:
@@ -44,4 +46,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/ai-model:latest
+          tags: kvreddy211/ai-model:latest
