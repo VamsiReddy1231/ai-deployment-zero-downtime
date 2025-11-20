@@ -1,0 +1,1 @@
+response = client.post("/predict")
