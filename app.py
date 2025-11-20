@@ -2,6 +2,8 @@ import joblib
 from flask import Flask, request, jsonify
 from prometheus_client import Counter, generate_latest, CONTENT_TYPE_LATEST
 
+
+print("App Version 2 running")
 MODEL_PATH = "model.joblib"
 
 # Load the trained model
